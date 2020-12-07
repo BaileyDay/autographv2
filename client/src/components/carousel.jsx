@@ -10,7 +10,8 @@ const Carousel = () => {
         bulmaCarousel.attach('#carousel', {
             slidesToScroll: 1,
             slidesToShow: 1,
-            loop: true
+            loop: true,
+            autoplay: true
         });
       });
   return (
@@ -37,7 +38,7 @@ const Carousel = () => {
 			</div>
 			<div className="hero-head"></div>
 			<div className="hero-body"></div>
-			<div classNameName="hero-foot"></div>
+			<div className="hero-foot"></div>
 		</section>
   );
 };
