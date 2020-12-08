@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import Login from './components/login'
+import Contact from './components/contact'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" exact component={App} />
         <Route path="/login" exact component={Login} />
+        <Route path="/contact" exact component={Contact} />
       </Switch>
     </Router>
   </React.StrictMode>,

@@ -1,0 +1,35 @@
+.contactHero {
+    background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/contactHero.JPG");
+    background-size: cover;
+    background-position-y: 30%;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 3em;
+}
+
+.contactSubtitle {
+    margin-bottom: 10%;
+}
+
+.contactContainer {
+    margin: 5%;
+}
+
+.contactContainer iframe{
+    width: 50vw;
+}
+.contactIcons a { 
+    color:hsl(0, 0%, 21%);
+}
+
+@media only screen and (max-width: 600px) {
+    .contactContainer {
+        margin: 10%;
+    }
+    .contactContainer iframe{
+        width: 75vw;
+    }
+    
+  }

@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
-    <a className="navbar-item" href="https://bulma.io">
+    <a className="navbar-item" href="/">
       <img  src="https://autographfarm.s3.us-east-2.amazonaws.com/logo.png" id="logo" />
     </a>
     
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   <div id="navbarBasicExample" className="navbar-menu">
     <div className="navbar-start">
-      <a className="navbar-item">
+      <a className="navbar-item" href="/">
         Home
       </a>
 
@@ -61,7 +61,7 @@ const Navbar = () => {
             Fun Times
           </a>
           <hr className="navbar-divider"/>
-          <a className="navbar-item">
+          <a className="navbar-item" href="/contact">
             Contact
           </a>
         </div>
