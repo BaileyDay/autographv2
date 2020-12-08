@@ -69,12 +69,23 @@ const Navbar = () => {
     </div>
 
     <div className="navbar-end">
+    
       <div className="navbar-item">
         <div className="buttons">
+          
          
           <a className="button is-light">
+          <span class="icon">
+      <i class="fas fa-sign-in-alt"></i>
+    </span>
+    <span></span>
             Log in
           </a>
+          <div className="navbar-item navIcons">
+    <a href="https://www.facebook.com/Autograph-Farm-LLC-108658054303892/" target="blank"><i class="fab fa-facebook fa-fw"></i></a>
+    </div>
+    <div className="navbar-item navIcons">
+  <a href="https://www.instagram.com/autographfarmllc/?hl=en" target="blank"><i class="fab fa-instagram fa-fw"></i></a></div>
         </div>
       </div>
     </div>
