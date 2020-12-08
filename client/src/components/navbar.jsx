@@ -74,7 +74,7 @@ const Navbar = () => {
         <div className="buttons">
           
          
-          <a className="button is-light">
+          <a className="button is-light" href="/login">
           <span class="icon">
       <i class="fas fa-sign-in-alt"></i>
     </span>

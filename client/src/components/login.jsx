@@ -1,23 +1,48 @@
 import React from "react";
-import "../css/navbar.css"
+import "../css/login.css"
 
-// Hamburger menu functionality
-$(document).ready(function() {
-
-    // Check for click events on the navbar burger icon
-    $(".navbar-burger").click(function() {
-  
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        $(".navbar-burger").toggleClass("is-active");
-        $(".navbar-menu").toggleClass("is-active");
-  
-    });
-  });
-
-const Navbar = () => {
+const Login = () => {
   return (
-    <h1>hello</h1>
+    <section className="hero  is-light is-fullheight">
+  <div className="hero-body">
+    <div className="container">
+      <div className="columns is-centered">
+        <div className="column is-5-tablet is-4-desktop is-3-widescreen">
+          <form action="" className="box login">
+              <img src="https://autographfarm.s3.us-east-2.amazonaws.com/logo.png" alt=""/>
+            <div className="field">
+              <label htmlFor="" className="label">Email</label>
+              <div className="control has-icons-left">
+                <input type="email" placeholder="hello@example.com" className="input" required />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div className="field">
+              <label htmlFor="" className="label">Password</label>
+              <div className="control has-icons-left">
+                <input type="password" placeholder="*******" className="input" required />
+                <span className="icon is-small is-left">
+                  <i className="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div className="field">
+
+            </div>
+            <div className="field">
+              <button className="button ">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   );
 };
 
-export default Navbar;
+export default Login;
