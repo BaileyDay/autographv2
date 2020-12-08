@@ -3,6 +3,7 @@ import Navbar from './components/navbar'
 import Carousel from './components/carousel'
 import MainCards from './components/mainCards'
 import BusinessHours from './components/businessHours'
+import Footer from './components/footer'
 import './App.css';
 
 
@@ -14,6 +15,7 @@ class App extends Component {
         <Carousel/>
         <MainCards/>
         <BusinessHours/>
+        <Footer/>
       </div>
     );
   }

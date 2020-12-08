@@ -1,0 +1,21 @@
+.footer {
+    background-color: #323232;
+}
+
+.footer p {
+    color: white;
+}
+
+.icons a{
+    color: white;
+    font-size: 2em;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .icons a{
+        color: white;
+        font-size: 3em;
+        
+    }
+  }
