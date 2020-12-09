@@ -1,7 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const path = require('path')
 const app = express();
+
+app.use(bodyParser.json());
+
 
 app.get('/api/customers', cors(), (req, res) => {
   const customers = [
@@ -13,6 +17,12 @@ app.get('/api/customers', cors(), (req, res) => {
   res.json(customers);
 });
 
-const port = 5000;
+app.use(express.static(path.join(__dirname, '../build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build'))
+})
 
-app.listen(port, () => `Server running on port ${port}`);
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+});

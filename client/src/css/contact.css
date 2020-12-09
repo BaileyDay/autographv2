@@ -3,6 +3,10 @@
     background-size: cover;
     background-position-y: 30%;
 }
+.contactHero h1 {
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+}
 
 .hero h1 {
     color: white;
