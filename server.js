@@ -17,10 +17,11 @@ app.get('/api/customers', cors(), (req, res) => {
   res.json(customers);
 });
 
-app.use(express.static(path.join(__dirname, '../build')))
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build'))
-})
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
