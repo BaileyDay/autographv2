@@ -31,6 +31,10 @@
      font-size: 2em;
  }
 
+ .navbar-menu {
+     text-align: center;
+ }
+
 
 #logo{
     height: 300%;

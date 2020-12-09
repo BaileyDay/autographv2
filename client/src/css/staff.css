@@ -1,0 +1,44 @@
+.staffHero {
+    background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/staffJumbo.jpeg");
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
+.staffHero h1 {
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+
+}
+
+.staffContainer {
+    margin: 5%;
+}
+.staffCardHeader {
+    background-color: #323232;
+    color: white;
+}
+.staffCardHeader a{
+    color: white;
+}
+.staffCardHeader p{
+    color: white;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .staffHero {
+        background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/staffJumbo.jpeg");
+        background-size: cover;
+        background-position-x: 50%;
+    }
+    .staffHero h1 {
+        font-size: 1.3em;
+        text-align: center;
+        margin-top: -20%;
+        
+    }
+  }

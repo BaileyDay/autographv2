@@ -51,7 +51,7 @@ const Navbar = () => {
         </a>
 
         <div className="navbar-dropdown">
-          <a className="navbar-item">
+          <a  href="/staff" className="navbar-item">
             Our Staff
           </a>
           <a className="navbar-item">
@@ -75,17 +75,17 @@ const Navbar = () => {
           
          
           <a className="button is-light" href="/login">
-          <span class="icon">
-      <i class="fas fa-sign-in-alt"></i>
+          <span className="icon">
+      <i className="fas fa-sign-in-alt"></i>
     </span>
     <span></span>
             Log in
           </a>
           <div className="navbar-item navIcons">
-    <a href="https://www.facebook.com/Autograph-Farm-LLC-108658054303892/" target="blank"><i class="fab fa-facebook fa-fw"></i></a>
+    <a href="https://www.facebook.com/Autograph-Farm-LLC-108658054303892/" target="blank"><i className="fab fa-facebook fa-fw"></i></a>
     </div>
     <div className="navbar-item navIcons">
-  <a href="https://www.instagram.com/autographfarmllc/?hl=en" target="blank"><i class="fab fa-instagram fa-fw"></i></a></div>
+  <a href="https://www.instagram.com/autographfarmllc/?hl=en" target="blank"><i className="fab fa-instagram fa-fw"></i></a></div>
         </div>
       </div>
     </div>
