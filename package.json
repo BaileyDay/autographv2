@@ -7,10 +7,9 @@
     "client-install": "cd client && npm install",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "build": "react-scripts build",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && npm client-install"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && npm run client-install"
   },
   "author": "Brad Traversy",
   "license": "MIT",
