@@ -1,8 +1,11 @@
 import React from "react";
+import NavBar from './navbar'
 import "../css/login.css"
 
 const Login = () => {
   return (
+    <>
+    <NavBar/>
     <section className="hero  is-light is-fullheight">
   <div className="hero-body">
     <div className="container">
@@ -42,6 +45,7 @@ const Login = () => {
     </div>
   </div>
 </section>
+</>
   );
 };
 

@@ -17,6 +17,13 @@ const Lessons = () => {
   </div>
 </div>
 </section>
+<div className="is-flex is-justify-content-center">
+<div className="contactButtonContainer has-text-centered">
+          <a href="/contact" className="" target="_blank">
+            Contact us about Lessons
+          </a>
+        </div>
+        </div>
 <div className="container">
       <div className="columns">
           <div className="lessonsLeft column is-family-sans-serif">

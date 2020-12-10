@@ -31,7 +31,7 @@ bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
     <div className="column">
     <div className="card staffCard">
   <div className="card-image">
-    <figure className="image is-4by3">
+    <figure className="image ">
       <img src="https://autographfarm.s3.us-east-2.amazonaws.com/profile+photos/jules.JPG" alt="Juliana"/>
     </figure>
   </div>
@@ -68,9 +68,9 @@ Juliana also gets great satisfaction ensuring that the horses at her barn are ge
 <div className="column">
     <div className="card staffCard">
   <div className="card-image">
-    <figure className="image is-4by3">
+    <figure className="image">
       <img src="https://autographfarm.s3.us-east-2.amazonaws.com/profile+photos/ava.jpeg 
-      " alt="Juliana"/>
+      " alt="Ava"/>
     </figure>
   </div>
   <div className="card-content">

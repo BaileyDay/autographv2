@@ -17,3 +17,33 @@
 .lessonsIMG {
     margin: 10%;
 }
+
+.contactButtonContainer{
+    margin-top: 5%;
+    background-color:  #323232;
+    border: #1f1e1e;
+    color: white;
+    box-shadow: -3px 3px  #1a1919, -2px 2px  #252525, -1px 1px #1b1b1b;
+    text-shadow: none;
+    width: 30%;
+    height: 50px;
+    font-size: 1.2em;
+    padding-top: 0.6%;
+}
+.contactButtonContainer a{
+    color: white;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .contactButtonContainer {
+            margin-top: 10%;
+            width: 90%;
+            height: auto;
+        }
+        .contactButtonContainer a {
+            width: 90%;
+      font-size: 1.3em;
+      margin-top: 2%;
+      margin-bottom: 3%;
+        }
+      }
