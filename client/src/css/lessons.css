@@ -1,0 +1,11 @@
+.lessonsHero {
+    background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/lessonsJumbo.jpeg");
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 20%;
+}
+
+.lessonsHero h1 {
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+}
