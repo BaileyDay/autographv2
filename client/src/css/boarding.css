@@ -1,0 +1,11 @@
+.boardingHero {
+    background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/Boarding/boardingJumbotron.JPG");
+    background-size: cover;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
+
+.boardingHero h1{
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+}
