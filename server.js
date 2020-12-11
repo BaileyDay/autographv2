@@ -1,27 +1,37 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-require('dotenv').config()
-const cors = require('cors');
-const path = require('path')
-const app = express();
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const path = require("path");
+const cors = require("cors");
 const mongoose = require("mongoose");
-const MONGODB_URI = process.env.MONGO
+require("dotenv").config();
+const MONGODB_URI = process.env.MONGO;
 
-app.use(bodyParser.json());
+const authRoutes = require("./routes/auth");
 
+const app = express();
+app.use(cors());
+
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.use(authRoutes);
+
+
+mongoose.connect(MONGODB_URI).catch((err) => {
+  console.log(err);
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).catch((err) => {
-  console.log(err)
-});
-
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+  console.log(`Server started on port ${port}`);
 });
+
+module.exports = app;

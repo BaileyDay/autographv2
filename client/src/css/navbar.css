@@ -1,11 +1,13 @@
-.navbar{
+.navbar {
     background-color: #323232;
     height: 10vh;
 }
-.navbar-burger{
+.navbar-burger {
     height: 10vh;
 }
-
+.navbar-burger2 {
+    height: 10vh;
+}
 .navbar-item{
     color: white;
 }

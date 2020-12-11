@@ -9,6 +9,7 @@ import Lessons from './components/lessons'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 import Boarding from "./components/boarding";
+import DashBoard from "./components/dashboard";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Route path="/staff" exact component={Staff} />
         <Route path="/lessons" exact component={Lessons} />
         <Route path="/boarding" exact component={Boarding} />
+        <Route path="/dashboard" exact component={DashBoard} />
       </Switch>
     </Router>
   </React.StrictMode>,
