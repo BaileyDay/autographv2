@@ -11,7 +11,7 @@ const tree = dirTree("../../");
 console.log(tree)
 
 const DashBoard = () => {
-    const [images, setImages] = useState(0);
+    const [images, setImages] = useState([]);
     useEffect(() => {
         axios.get("/api/images").then((result) => setImages(result.data))
       }, []);
