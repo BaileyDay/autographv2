@@ -4,10 +4,12 @@ const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
+
 require("dotenv").config();
 const MONGODB_URI = process.env.MONGO;
 
 const authRoutes = require("./routes/auth");
+const imageRoutes = require('./routes/images')
 
 const app = express();
 app.use(cors());
@@ -17,14 +19,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client", "build")));
+app.use('/images', express.static(path.join(__dirname, "images")));
 
 app.use(authRoutes);
+app.use(imageRoutes);
 
 
 mongoose.connect(MONGODB_URI).catch((err) => {
   console.log(err);
 });
 
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "service-worker.js"));
+});
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
