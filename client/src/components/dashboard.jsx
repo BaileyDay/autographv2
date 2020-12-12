@@ -57,7 +57,7 @@ const DashBoard = () => {
 </div>
     </div>
    <div className="container">
-   {images && (
+   {images && 
           <div>
             {images.map((image, id) => (
               <div key={id}>
@@ -65,7 +65,7 @@ const DashBoard = () => {
               </div>
             ))}
           </div>
-        )}
+        }
    </div>
     </>
   );
