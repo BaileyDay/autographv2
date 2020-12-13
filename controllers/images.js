@@ -24,11 +24,19 @@ const multerS3 = require('multer-s3');
 
 exports.getImages = async (req, res, next) => {
     try {
-        const image = await Image.find();
+        const image = await Image.find({"gallery": "accomplishments"});
         res.json(image);
       } catch (err) {
         console.error(err.message);
       }
+}
+exports.getImages2 = async (req, res, next) => {
+  try {
+      const image = await Image.find({"gallery": "funtimes"});
+      res.json(image);
+    } catch (err) {
+      console.error(err.message);
+    }
 }
 
 // exports.postImages = async (req, res, next) => {

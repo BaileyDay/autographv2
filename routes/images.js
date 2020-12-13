@@ -25,6 +25,7 @@ var upload = multer({
 const singleUpload = upload.single('image')
 
 router.get("/api/images", imageController.getImages);
+router.get("/api/images2", imageController.getImages2);
 
 
 router.post("/api/images", function(req, res) {

@@ -16,7 +16,7 @@ const imageSchema = new Schema({
   gallery: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
   },
   date: {
     type: Date,

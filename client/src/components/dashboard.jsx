@@ -4,6 +4,7 @@ import $, { data } from "jquery"
 import "../css/navbar.css"
 import "../css/dashBoard.css"
 import axios from 'axios'
+import { useStore } from "./store";
 
 
 
@@ -13,8 +14,18 @@ const DashBoard = () => {
     const [pageSelect, setPageSelect] = useState("");
     const [loading, setLoading] = useState("file-label control");
     const [isDisabled, setIsDisabled] = useState(false);
-    const [gallery, setGallery] = useState("accomplishments");
+    const [gallery, setGallery] = useState("accomplish");
+    const [galleryLink, setGalleryLink] = useState("/api/images");
+    const { state, dispatch } = useStore();
     
+    const getImages1 = () => {
+        axios.get("/api/images").then((result) => setImages(result.data))
+    }
+    const getImages2 = () => {
+        axios.get("/api/images2").then((result) => setImages(result.data))
+    }
+
+
     const handleDelete = (id, awsKey) => {
         axios({
             method: 'delete',
@@ -25,22 +36,39 @@ const DashBoard = () => {
             }
         }).then((result) =>{ 
             if(result.status === 200){
-                getImages()
+                if (gallery === "accomplish"){
+                    getImages1()
+                }
+                if (gallery === "funtimes"){
+                    getImages2()
+                }
             }
         })} 
 
     function useForceUpdate(){
         return () => setValue(value => ++value); // update the state to force render
     }
-    
-    const getImages = () => {
-        axios.get("/api/images").then((result) => setImages(result.data))
-        useForceUpdate()
+
+   
+    const handleClick1 = () => {
+        dispatch({
+            type: "accomplishUrl"
+        })
+        getImages1()
+    }
+    const handleClick2 = () => {
+        dispatch({
+            type: "funtimesUrl"
+        })
+       getImages2()
+        
     }
 
-    console.log(images)
+    
+   
+
     useEffect(() => {
-        getImages()
+        getImages1()
       }, []);
   return (
       <>
@@ -51,10 +79,10 @@ const DashBoard = () => {
     </a></div></nav>
     <div className="container dashContainer columns has-text-centered">
         <div className="column">
-    <button className="button is-info" onClick={(e) => e.preventDefault + setGallery("accomplishments")}>Accomplishments</button>
+    <button className="button is-info" onClick={(e) => e.preventDefault + handleClick1() + setGallery("accomplish")}>Accomplishments</button>
     </div>
     <div className="column">
-    <button className="button is-info" onClick={(e) => e.preventDefault + setGallery("funtimes")} >Fun Times</button>
+    <button className="button is-info" onClick={(e) => e.preventDefault +handleClick2() + setGallery("funtimes") } >Fun Times</button>
     </div>
     </div>
     <div className="fileContainer">
@@ -66,22 +94,20 @@ const DashBoard = () => {
         const data = new FormData();
         const file = e.target.files[0];
         data.append("image", file); 
-        let galleryUrl = "/api/images"
-        if(gallery === "accomplishments"){
-            galleryUrl = "/api/images"
-        }
-        if(gallery === "funtimes"){
-            galleryUrl = "/api/images2"
-        }
         if(file){
         axios({
             method: 'post',
-            url: galleryUrl,
+            url: state.galleryUrl,
             data: data,
             config: { headers: { 'Content-Type': 'multipart/form-data' } }
         }).then((result) =>{ 
             if(result.status === 200){
-                getImages()
+                if (gallery === "accomplish"){
+                    getImages1()
+                }
+                if (gallery === "funtimes"){
+                    getImages2()
+                }
                 setLoading('"file-label control"')
                 setIsDisabled(false)
             }
@@ -105,7 +131,7 @@ const DashBoard = () => {
 </div>
     </div>
    <div className="container">
-   {images && gallery === "accomplishments" &&
+   {images && gallery &&
           <div className="dashImageContainer">
             {images.map((image) => (
               <div className="card" key={image._id} >

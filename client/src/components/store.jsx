@@ -9,12 +9,20 @@ const initialState = {
   isAuthenticated: null,
   loading: true,
   user: null,
-  loadedImages:[],
+  galleryUrl: "/api/images"
 };
 
 const reducer = (state, action) => {
   const { payload } = action;
   switch (action.type) {
+    case "accomplishUrl":
+      return {
+        galleryUrl: "/api/images",
+      };
+      case "funtimesUrl":
+      return {
+        galleryUrl: "/api/images2",
+      };
     case "RegistrationSucceeded":
       return {
         message: "You have successfully registered! Please login.",
