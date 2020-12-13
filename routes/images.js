@@ -31,7 +31,19 @@ router.post("/api/images", function(req, res) {
     singleUpload(req, res, function(err){
         const image = new Image ({
             path: req.file.location,
-            awsKey: req.file.key
+            awsKey: req.file.key,
+            gallery: "accomplishments"
+        })
+        res.send(200)
+        return image.save();
+    })
+});
+router.post("/api/images2", function(req, res) {
+    singleUpload(req, res, function(err){
+        const image = new Image ({
+            path: req.file.location,
+            awsKey: req.file.key,
+            gallery: "funtimes"
         })
         res.send(200)
         return image.save();

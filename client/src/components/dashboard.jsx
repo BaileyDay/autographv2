@@ -13,7 +13,7 @@ const DashBoard = () => {
     const [pageSelect, setPageSelect] = useState("");
     const [loading, setLoading] = useState("file-label control");
     const [isDisabled, setIsDisabled] = useState(false);
-    const [deleteId, setDeleteId] = useState("");
+    const [gallery, setGallery] = useState("accomplishments");
     
     const handleDelete = (id, awsKey) => {
         axios({
@@ -51,10 +51,10 @@ const DashBoard = () => {
     </a></div></nav>
     <div className="container dashContainer columns has-text-centered">
         <div className="column">
-    <button className="button is-info">Accomplishments</button>
+    <button className="button is-info" onClick={(e) => e.preventDefault + setGallery("accomplishments")}>Accomplishments</button>
     </div>
     <div className="column">
-    <button className="button is-info">Fun Times</button>
+    <button className="button is-info" onClick={(e) => e.preventDefault + setGallery("funtimes")} >Fun Times</button>
     </div>
     </div>
     <div className="fileContainer">
@@ -66,10 +66,17 @@ const DashBoard = () => {
         const data = new FormData();
         const file = e.target.files[0];
         data.append("image", file); 
+        let galleryUrl = "/api/images"
+        if(gallery === "accomplishments"){
+            galleryUrl = "/api/images"
+        }
+        if(gallery === "funtimes"){
+            galleryUrl = "/api/images2"
+        }
         if(file){
         axios({
             method: 'post',
-            url: '/api/images',
+            url: galleryUrl,
             data: data,
             config: { headers: { 'Content-Type': 'multipart/form-data' } }
         }).then((result) =>{ 
@@ -78,7 +85,9 @@ const DashBoard = () => {
                 setLoading('"file-label control"')
                 setIsDisabled(false)
             }
-        })} else { 
+            
+        })} 
+        else { 
             setLoading('"file-label control"')
             setIsDisabled(false)
         }
@@ -96,7 +105,7 @@ const DashBoard = () => {
 </div>
     </div>
    <div className="container">
-   {images && 
+   {images && gallery === "accomplishments" &&
           <div className="dashImageContainer">
             {images.map((image) => (
               <div className="card" key={image._id} >
