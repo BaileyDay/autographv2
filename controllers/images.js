@@ -1,8 +1,26 @@
 require("dotenv").config();
 const fs = require('fs');
-const Image = require('../models/image')
+const Image = require('../models/image');
+const aws = require('aws-sdk');
+const multer = require('multer');
+const multerS3 = require('multer-s3');
 
+// var s3 = new aws.S3()
+ 
+// var upload = multer({
+//   storage: multerS3({
+//     s3: s3,
+//     bucket: 'autographfarm',
+//     metadata: function (req, file, cb) {
+//       cb(null, {fieldName: file.fieldname});
+//     },
+//     key: function (req, file, cb) {
+//       cb(null, Date.now().toString())
+//     }
+//   })
+// })
 
+// const singleUpload = upload.single('image')
 
 exports.getImages = async (req, res, next) => {
     try {
@@ -14,6 +32,6 @@ exports.getImages = async (req, res, next) => {
 }
 
 // exports.postImages = async (req, res, next) => {
-//     res.send("req recieved")
-//     console.log(req.file)
+//   upload.single('image')
+//   return res.json({"imageUrl": req.file.location})
 // }

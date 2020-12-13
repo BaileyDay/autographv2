@@ -7,3 +7,12 @@
     display: flex;
     justify-content: center;
 }
+
+.dashImage img {
+}
+.file-cta {
+    width: 50vw;
+}
+#logodash {
+    margin-top: 15%;
+}

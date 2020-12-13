@@ -10,9 +10,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 import Boarding from "./components/boarding";
 import DashBoard from "./components/dashboard";
+import { StoreProvider } from "./components/store";
 
 ReactDOM.render(
-  <React.StrictMode>
+    <StoreProvider>
     <Router>
       <Switch>
         <Route path="/" exact component={App} />
@@ -24,7 +25,7 @@ ReactDOM.render(
         <Route path="/dashboard" exact component={DashBoard} />
       </Switch>
     </Router>
-  </React.StrictMode>,
+    </StoreProvider>,
   document.getElementById("root")
 );
 
