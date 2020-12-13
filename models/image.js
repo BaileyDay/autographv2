@@ -8,6 +8,11 @@ const imageSchema = new Schema({
     required: true,
     unique: true,
   },
+  awsKey: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   date: {
     type: Date,
     default: Date.now,

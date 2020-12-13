@@ -13,8 +13,22 @@ const DashBoard = () => {
     const [pageSelect, setPageSelect] = useState("");
     const [loading, setLoading] = useState("file-label control");
     const [isDisabled, setIsDisabled] = useState(false);
+    const [deleteId, setDeleteId] = useState("");
     
-    
+    const handleDelete = (id, awsKey) => {
+        axios({
+            method: 'delete',
+            url: '/api/images',
+            data: {
+                id: id,
+                awsKey: awsKey
+            }
+        }).then((result) =>{ 
+            if(result.status === 200){
+                getImages()
+            }
+        })} 
+
     function useForceUpdate(){
         return () => setValue(value => ++value); // update the state to force render
     }
@@ -84,20 +98,19 @@ const DashBoard = () => {
    <div className="container">
    {images && 
           <div className="dashImageContainer">
-            {images.map((image, id) => (
-              <div className="card" key={id}>
+            {images.map((image) => (
+              <div className="card" key={image._id} >
               <div className="card-image">
                 <figure className="image is-4by3 dashImage">
                   <img src={image.path} alt="Placeholder image"/>
                 </figure>
               </div>
               <footer className="card-footer">
-    <a href="#" className="card-footer-item button is-danger">Delete</a>
+    <button type="button" className="card-footer-item button is-danger" onClick={(e) => {
+        e.preventDefault();
+        handleDelete(image._id, image.awsKey)}
+        }>Delete</button>
   </footer>
-
-            
-                
-              
             </div>
             ))}
           </div>

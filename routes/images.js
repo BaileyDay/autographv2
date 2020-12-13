@@ -25,14 +25,33 @@ var upload = multer({
 const singleUpload = upload.single('image')
 
 router.get("/api/images", imageController.getImages);
+
+
 router.post("/api/images", function(req, res) {
     singleUpload(req, res, function(err){
         const image = new Image ({
-            path: req.file.location
+            path: req.file.location,
+            awsKey: req.file.key
         })
         res.send(200)
         return image.save();
     })
 });
 
+router.delete("/api/images", function(req, res) {
+    const deleteId = req.body.id
+    console.log(req.body)
+    const params = {Bucket: 'autographfarm', Key: req.body.awsKey}
+    s3.deleteObject(params, function(err, data){
+        if(err) console.log(err)
+        else console.log("deleted")
+    })
+    Image.findByIdAndDelete(deleteId, function (err){
+        if(err){
+            console.log(err)
+            console.log("Successfull Deletion")
+        }
+    })
+    res.send(200)
+});
 module.exports = router;
