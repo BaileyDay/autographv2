@@ -8,11 +8,53 @@ import "../css/carousel.css"
 const Carousel = () => {
     useEffect(() => {
         bulmaCarousel.attach('#carousel', {
-            slidesToScroll: 1,
-            slidesToShow: 1,
-            loop: true,
-            autoplay: true
-        });
+			initialSlide: 0,
+		  slidesToScroll: 1,
+		  slidesToShow: 1,
+		
+		  navigation: true,
+		  navigationKeys: true,
+		  navigationSwipe: true,
+		
+		  pagination: true,
+		
+		  loop: true,
+		  infinite: false,
+		
+		  effect: 'translate',
+		  duration: 300,
+		  timing: 'ease',
+		
+		  autoplay: false,
+		  autoplaySpeed: 3000,
+		  pauseOnHover: true,
+		  breakpoints: [{
+			  changePoint: 480,
+			  slidesToShow: 1,
+			  slidesToScroll: 1
+			},
+			{
+			  changePoint: 640,
+			  slidesToShow: 1,
+			  slidesToScroll: 1
+			},
+			{
+			  changePoint: 768,
+			  slidesToShow: 1,
+			  slidesToScroll: 1
+			},
+			{
+				changePoint: 1500,
+				slidesToShow: 1,
+				slidesToScroll: 1
+			  },
+			  {
+				changePoint: 2500,
+				slidesToShow: 3,
+				slidesToScroll: 3
+			  }
+		  ]
+		  });
       });
   return (
     <section className="hero is-medium has-carousel">
