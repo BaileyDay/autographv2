@@ -10,6 +10,12 @@
     margin-top: -5%;
 }
 
+.frontPageImages {
+    height: 100%;
+    width: 20%;
+    margin-left: 38%;
+}
+
 @media only screen and (max-width: 600px) {
     .accomplishmentsHero h1 {
         text-align: center;
@@ -20,6 +26,11 @@
         background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/accomplishments.jpg");
         background-size: cover;
         background-position-x: 60%;
+    }
+    .frontPageImages {
+        height: auto;
+        width: auto;
+        margin-left: 12%;
     }
     
   }

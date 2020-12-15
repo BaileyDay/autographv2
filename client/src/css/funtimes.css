@@ -1,0 +1,11 @@
+.funHero {
+    background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/IMG_1659.jpeg");
+    background-size: cover;
+    background-position-y: 30%;
+}
+
+.funHero h1 {
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    margin-top: -14%;
+}

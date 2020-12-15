@@ -18,6 +18,7 @@ import DashBoard from "./components/dashboard";
 import { StoreProvider } from "./components/store";
 import { useStore } from "./components/store";
 import Accomplishments from "./components/accomplishments";
+import FunTimes from "./components/funtimes";
 
 function PrivateRoute({ children, ...rest }) {
   const { state } = useStore();
@@ -53,6 +54,7 @@ ReactDOM.render(
         <Route path="/lessons" exact component={Lessons} />
         <Route path="/boarding" exact component={Boarding} />
         <Route path="/accomplishments" exact component={Accomplishments} />
+        <Route path="/funtimes" exact component={FunTimes} />
         <PrivateRoute path="/dashboard">
           <DashBoard/>
         </PrivateRoute>

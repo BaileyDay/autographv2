@@ -2,25 +2,25 @@ import React, { useEffect, useState } from 'react';
 import NavBar from './navbar'
 import Footer from './footer'
 import axios from 'axios'
-import '../css/accomplishments.css'
+import '../css/funtimes.css'
 
-const Accomplishments = () => {
+const FunTimes = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        getImages1()
+        getImages2()
       }, []);
 
-      const getImages1 = () => {
-        axios.get("/api/images").then((result) => setImages(result.data))
+      const getImages2 = () => {
+        axios.get("/api/images2").then((result) => setImages(result.data))
     }
   return (<>
       <NavBar/>
-      <section className="accomplishmentsHero hero  is-medium">
+      <section className="funHero hero  is-medium">
   <div className="hero-body">
     <div className="container">
       <h1 className="title is-3 ">
-        Accomplishments
+        Fun Times
       </h1>
 
     </div>
@@ -48,4 +48,4 @@ const Accomplishments = () => {
   );
 };
 
-export default Accomplishments;
+export default FunTimes;
