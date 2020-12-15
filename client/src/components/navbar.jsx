@@ -54,10 +54,10 @@ const Navbar = () => {
           <a  href="/staff" className="navbar-item">
             Our Staff
           </a>
-          <a className="navbar-item">
+          <a className="navbar-item" href="/accomplishments">
             Accomplishments
           </a>
-          <a className="navbar-item">
+          <a className="navbar-item" href="/funtimes">
             Fun Times
           </a>
           <hr className="navbar-divider"/>

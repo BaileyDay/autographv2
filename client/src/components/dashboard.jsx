@@ -5,8 +5,9 @@ import "../css/navbar.css"
 import "../css/dashBoard.css"
 import axios from 'axios'
 import { useStore } from "./store";
+import { useHistory } from "react-router-dom";
 
-
+axios.defaults.headers.common["x-auth-token"] = localStorage.getItem("token");
 
 const DashBoard = () => {
     const [images, setImages] = useState([]);
@@ -17,13 +18,9 @@ const DashBoard = () => {
     const [gallery, setGallery] = useState("accomplish");
     const [galleryLink, setGalleryLink] = useState("/api/images");
     const { state, dispatch } = useStore();
+    let history = useHistory();
     
-    const getImages1 = () => {
-        axios.get("/api/images").then((result) => setImages(result.data))
-    }
-    const getImages2 = () => {
-        axios.get("/api/images2").then((result) => setImages(result.data))
-    }
+    
 
 
     const handleDelete = (id, awsKey) => {
@@ -64,12 +61,26 @@ const DashBoard = () => {
         
     }
 
+    const logout = () => {
+        dispatch({
+          type: "logout",
+        });
+        history.push("/login");
+      };
     
    
-
+    
     useEffect(() => {
         getImages1()
       }, []);
+      const getImages1 = () => {
+        axios.get("/api/images").then((result) => setImages(result.data))
+    }
+    const getImages2 = () => {
+        axios.get("/api/images2").then((result) => setImages(result.data))
+    }
+
+      console.log(localStorage)
   return (
       <>
     <nav className="navbar" role="navigation" aria-label="main navigation">
@@ -78,6 +89,13 @@ const DashBoard = () => {
       <img  src="https://autographfarm.s3.us-east-2.amazonaws.com/logo.png" id="logodash" />
     </a></div></nav>
     <div className="container dashContainer columns has-text-centered">
+    <a className="button is-danger" onClick={logout}>
+          <span className="icon">
+      <i className="fas fa-sign-in-alt"></i>
+    </span>
+    <span></span>
+            Log Out
+          </a>
         <div className="column">
     <button className="button is-info" onClick={(e) => e.preventDefault + handleClick1() + setGallery("accomplish")}>Accomplishments</button>
     </div>

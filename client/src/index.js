@@ -6,13 +6,43 @@ import Login from './components/login'
 import Contact from './components/contact'
 import Staff from './components/staff'
 import Lessons from './components/lessons'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import registerServiceWorker from './registerServiceWorker';
 import Boarding from "./components/boarding";
 import DashBoard from "./components/dashboard";
 import { StoreProvider } from "./components/store";
+import { useStore } from "./components/store";
+import Accomplishments from "./components/accomplishments";
+
+function PrivateRoute({ children, ...rest }) {
+  const { state } = useStore();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        state.token ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login",
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+
 
 ReactDOM.render(
+  <React.StrictMode>
     <StoreProvider>
     <Router>
       <Switch>
@@ -22,10 +52,14 @@ ReactDOM.render(
         <Route path="/staff" exact component={Staff} />
         <Route path="/lessons" exact component={Lessons} />
         <Route path="/boarding" exact component={Boarding} />
-        <Route path="/dashboard" exact component={DashBoard} />
+        <Route path="/accomplishments" exact component={Accomplishments} />
+        <PrivateRoute path="/dashboard">
+          <DashBoard/>
+        </PrivateRoute>
       </Switch>
     </Router>
-    </StoreProvider>,
+    </StoreProvider>
+    </React.StrictMode>,
   document.getElementById("root")
 );
 

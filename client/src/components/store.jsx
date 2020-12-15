@@ -17,10 +17,16 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "accomplishUrl":
       return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
         galleryUrl: "/api/images",
       };
       case "funtimesUrl":
       return {
+        ...state,
+        ...payload,
+        isAuthenticated: true,
         galleryUrl: "/api/images2",
       };
     case "RegistrationSucceeded":

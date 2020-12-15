@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from './navbar'
 import "../css/login.css"
+import { useHistory } from "react-router-dom";
+import { useStore } from "./store";
+import axios from "axios";
+import { STATES } from "mongoose";
 
 const Login = () => {
+  const [username, setUsername] = useState(0);
+  const [password, setPassword] = useState(0);
+  const { state, dispatch } = useStore();
+  let history = useHistory();
+  
+  const handleLogin = (e) => {
+    e.preventDefault();
+    axios
+      .post("/api/login", {
+        username: username,
+        password: password,
+      })
+      .then(function (response) {
+        console.log(response);
+        if (response.status === 200) {
+          dispatch({ type: "loginSucceeded", payload: response.data });
+        }
+      })
+      .then(() => {
+        history.push("/dashboard");
+      })
+      .catch(function (error) {
+        console.log(error.response.status);
+        if (error.response.status === 400) {
+          dispatch({ type: "InvalidUsername" });
+        }
+      });
+  }
+
   return (
     <>
     <NavBar/>
@@ -14,18 +47,18 @@ const Login = () => {
           <form action="" className="box login">
               <img src="https://autographfarm.s3.us-east-2.amazonaws.com/logo.png" alt=""/>
             <div className="field">
-              <label htmlFor="" className="label">Email</label>
+              <label htmlFor="" className="label">Username</label>
               <div className="control has-icons-left">
-                <input type="email" placeholder="hello@example.com" className="input" required />
+                <input type="email" placeholder="Username" className="input" required onChange={(e) => setUsername(e.target.value)}/>
                 <span className="icon is-small is-left">
-                  <i className="fa fa-envelope"></i>
+                  <i className="fa fa-user"></i>
                 </span>
               </div>
             </div>
             <div className="field">
               <label htmlFor="" className="label">Password</label>
               <div className="control has-icons-left">
-                <input type="password" placeholder="*******" className="input" required />
+                <input type="password" placeholder="*******" className="input" required onChange={(e) => setPassword(e.target.value)}/>
                 <span className="icon is-small is-left">
                   <i className="fa fa-lock"></i>
                 </span>
@@ -35,7 +68,7 @@ const Login = () => {
 
             </div>
             <div className="field">
-              <button className="button ">
+              <button className="button" onClick={handleLogin}>
                 Login
               </button>
             </div>
@@ -44,7 +77,12 @@ const Login = () => {
       </div>
     </div>
   </div>
+  {state.errorMessage &&
+  <div className="notification is-danger is-light m-5">
+  {state.errorMessage}
+</div>}
 </section>
+
 </>
   );
 };
