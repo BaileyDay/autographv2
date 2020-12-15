@@ -57,8 +57,8 @@ const Navbar = () => {
           <a className="navbar-item" href="/accomplishments">
             Accomplishments
           </a>
-          <a className="navbar-item" href="/funtimes">
-            Fun Times
+          <a className="navbar-item" href="/memorablemoments">
+            Memorable Moments
           </a>
           <hr className="navbar-divider"/>
           <a className="navbar-item" href="/contact">

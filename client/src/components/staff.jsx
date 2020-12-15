@@ -38,7 +38,7 @@ bulmaCollapsibleInstances.forEach(bulmaCollapsibleInstance => {
   <div className="card-content">
     <div className="media">
       <div className="media-content">
-        <p className="title is-4 ">Juliana Czkalala</p>
+        <p className="title is-4 ">Juliana Czekala</p>
         <p className="subtitle is-5">Head Trainer and Barn Manager</p>
       </div>
     </div>

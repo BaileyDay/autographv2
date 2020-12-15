@@ -100,7 +100,7 @@ const DashBoard = () => {
     <button className="button is-info" onClick={(e) => e.preventDefault + handleClick1() + setGallery("accomplish")}>Accomplishments</button>
     </div>
     <div className="column">
-    <button className="button is-info" onClick={(e) => e.preventDefault +handleClick2() + setGallery("funtimes") } >Fun Times</button>
+    <button className="button is-info" onClick={(e) => e.preventDefault +handleClick2() + setGallery("funtimes") } >Memorable Moments</button>
     </div>
     </div>
     <div className="fileContainer">

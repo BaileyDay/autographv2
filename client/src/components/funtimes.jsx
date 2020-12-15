@@ -20,7 +20,7 @@ const FunTimes = () => {
   <div className="hero-body">
     <div className="container">
       <h1 className="title is-3 ">
-        Fun Times
+        Memorable Moments
       </h1>
 
     </div>

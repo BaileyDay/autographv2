@@ -54,7 +54,7 @@ ReactDOM.render(
         <Route path="/lessons" exact component={Lessons} />
         <Route path="/boarding" exact component={Boarding} />
         <Route path="/accomplishments" exact component={Accomplishments} />
-        <Route path="/funtimes" exact component={FunTimes} />
+        <Route path="/memorablemoments" exact component={FunTimes} />
         <PrivateRoute path="/dashboard">
           <DashBoard/>
         </PrivateRoute>
