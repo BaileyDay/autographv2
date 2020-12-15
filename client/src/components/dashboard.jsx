@@ -80,7 +80,7 @@ const DashBoard = () => {
         axios.get("/api/images2").then((result) => setImages(result.data))
     }
 
-      console.log(localStorage)
+ 
   return (
       <>
     <nav className="navbar" role="navigation" aria-label="main navigation">
