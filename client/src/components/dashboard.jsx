@@ -89,7 +89,7 @@ const DashBoard = () => {
       <img  src="https://autographfarm.s3.us-east-2.amazonaws.com/logo.png" id="logodash" />
     </a></div></nav>
     <div className="container dashContainer columns has-text-centered">
-    <a className="button is-danger" onClick={logout}>
+    <a className="button is-danger logout" onClick={logout}>
           <span className="icon">
       <i className="fas fa-sign-in-alt"></i>
     </span>
@@ -152,7 +152,7 @@ const DashBoard = () => {
    {images && gallery &&
           <div className="dashImageContainer">
             {images.map((image) => (
-              <div className="card" key={image._id} >
+              <div className="card dashboardimage" key={image._id} >
               <div className="card-image">
                 <figure className="image is-4by3 dashImage">
                   <img src={image.path} alt="Placeholder image"/>

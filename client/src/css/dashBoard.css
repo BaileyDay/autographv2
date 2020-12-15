@@ -1,6 +1,6 @@
 .dashContainer button {
-    margin: 2%;
-    width: 75%;
+    margin-left: 60%;
+    width: 50%;
 }
 
 .fileContainer {
@@ -8,11 +8,34 @@
     justify-content: center;
 }
 
-.dashImage img {
+.dashboardimage {
+    width: 50%;
+    margin-left: 25%;
 }
-.file-cta {
+
+.logout {
+    margin-top: 1%;
+    margin-left: 10% ;
+}
+
+#logodash {
+    margin-top: 0%;
+}
+
+@media only screen and (max-width: 600px) {
+file-cta {
     width: 50vw;
+}
+.dashContainer button {
+    margin: 2%;
+    width: 75%;
 }
 #logodash {
     margin-top: 15%;
 }
+.logout {
+    margin-top: 0%;
+    margin-left: 0% ;
+}
+
+  }

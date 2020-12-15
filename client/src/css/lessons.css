@@ -1,6 +1,6 @@
 .lessonsHero {
     background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/lessonsJumbo.jpeg");
-    background-size: cover;
+    background-size: contain;
     background-position-x: 50%;
     background-position-y: 20%;
 }
