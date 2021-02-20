@@ -6,7 +6,7 @@ const Footer = () => {
 <footer className="footer">
   <div className="content has-text-centered">
     <p>
-      © 2020 AutoGraph Farm LLC
+      © 2020 Autograph Farm LLC
     </p>
   </div>
   <div className="content has-text-centered icons">

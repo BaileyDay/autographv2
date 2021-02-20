@@ -2,6 +2,7 @@
     background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/contactHero.JPG");
     background-size: cover;
     background-position-y: 30%;
+    font-family: 'Times New Roman', Times, serif;
 }
 .contactHero h1 {
     text-align: center;

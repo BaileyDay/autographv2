@@ -1,8 +1,11 @@
 .lessonsHero {
+    background-color: #414040;
     background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/lessonsJumbo.jpeg");
     background-size: contain;
+    background-repeat: no-repeat;
     background-position-x: 50%;
     background-position-y: 20%;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .lessonsHero h1 {
@@ -45,5 +48,11 @@
       font-size: 1.3em;
       margin-top: 2%;
       margin-bottom: 3%;
+        }
+        .lessonsHero {
+            background-image: url("https://autographfarm.s3.us-east-2.amazonaws.com/HeroImages/lessonsJumbo.jpeg");
+            background-size: cover;
+            background-position-x: 50%;
+            background-position-y: 20%;
         }
       }
